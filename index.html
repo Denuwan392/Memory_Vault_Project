@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Vault | Defence Services College Kurunegala</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a', // Navy Blue
+                        secondary: '#0c4a6e', // Dark Blue
+                        accent: '#f97316', // Orange
+                        light: '#f8fafc'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+        .upload-area {
+            border: 2px dashed #94a3b8;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        .upload-area.drag-over {
+            border-color: #1e3a8a;
+            background-color: #eff6ff;
+        }
+        .file-item {
+            transition: all 0.2s ease;
+        }
+        .file-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .progress-bar {
+            height: 4px;
+            border-radius: 2px;
+            background-color: #e2e8f0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1e3a8a, #f97316);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-blue-100">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-primary p-2 rounded-lg">
+                    <i class="fas fa-graduation-cap text-white text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-primary">Defence Services College Kurunegala</h1>
+                    <p class="text-sm text-gray-600">Memory Vault Project</p>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-4">
+                <span class="bg-accent text-white px-3 py-1 rounded-full text-sm font-medium">Secure Upload</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-12 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6">
+                <i class="fas fa-photo-video text-primary text-2xl"></i>
+            </div>
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Your Lens, Our Legacy</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+                Help us preserve the rich history of Defence Services College by sharing your photos and videos from school events, sports, cultural activities, and daily life.
+            </p>
+            
+            <div class="bg-white rounded-xl p-6 shadow-lg border border-blue-100">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-lock text-primary text-lg"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-800">100% Secure</h3>
+                        <p class="text-sm text-gray-600">Only our media team can access your uploads</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-infinity text-accent text-lg"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-800">No Limits</h3>
+                        <p class="text-sm text-gray-600">Upload as many files as you have</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-history text-secondary text-lg"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-800">Preserve History</h3>
+                        <p class="text-sm text-gray-600">Your memories become our legacy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section class="py-8 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-xl border border-blue-100 overflow-hidden">
+                <div class="bg-gradient-to-r from-primary to-secondary p-6">
+                    <h3 class="text-2xl font-bold text-white">Upload Your Memories</h3>
+                    <p class="text-blue-100">Photos, videos, and moments that capture life at DSC Kurunegala</p>
+                </div>
+                
+                <div class="p-8">
+                    <!-- Google Form Embed -->
+                    <div class="bg-gray-50 rounded-xl p-6 border-2 border-dashed border-gray-300">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-file-upload text-primary text-2xl"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Secure Google Form Upload</h4>
+                            <p class="text-gray-600 mb-6 max-w-md mx-auto">
+                                Click the button below to open our secure Google Form. You can upload up to 10 files per submission (photos and videos under 100MB each).
+                            </p>
+                            <a href="#" id="uploadLink" class="bg-gradient-to-r from-primary to-accent hover:from-primary hover:to-secondary text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center space-x-2">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>Upload Your Files</span>
+                            </a>
+                            <p class="text-sm text-gray-500 mt-4">
+                                <i class="fas fa-shield-alt text-green-500 mr-1"></i> 
+                                Your privacy is protected • Files are only visible to the media team
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Instructions -->
+                    <div class="mt-8">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-4">How to Upload:</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-start space-x-3">
+                                <div class="bg-primary text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mt-1 flex-shrink-0">1</div>
+                                <p class="text-gray-700">Click the "Upload Your Files" button above</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="bg-primary text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mt-1 flex-shrink-0">2</div>
+                                <p class="text-gray-700">Select photos/videos from your device (max 10 files, 100MB each)</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="bg-primary text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mt-1 flex-shrink-0">3</div>
+                                <p class="text-gray-700">Submit the form – that's it!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Supported Formats -->
+                    <div class="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                        <h5 class="font-medium text-primary mb-2">Supported File Types:</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700 border border-gray-200">.jpg</span>
+                            <span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700 border border-gray-200">.jpeg</span>
+                            <span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700 border border-gray-200">.png</span>
+                            <span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700 border border-gray-200">.mp4</span>
+                            <span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700 border border-gray-200">.mov</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-12 px-4 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold text-center text-gray-800 mb-8">Frequently Asked Questions</h3>
+            <div class="space-y-4">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <h4 class="font-semibold text-gray-800 mb-2">Do I need to create an account or log in?</h4>
+                    <p class="text-gray-600">No! The Google Form doesn't require any login. You can upload anonymously.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <h4 class="font-semibold text-gray-800 mb-2">Can other students see my uploads?</h4>
+                    <p class="text-gray-600">Absolutely not. Only the official media team can access the uploaded files. Your privacy is our priority.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <h4 class="font-semibold text-gray-800 mb-2">What if I have more than 10 files?</h4>
+                    <p class="text-gray-600">You can submit the form multiple times! Just click the upload button again after your first submission.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <h4 class="font-semibold text-gray-800 mb-2">How will my photos/videos be used?</h4>
+                    <p class="text-gray-600">Your submissions will be used to create historical archives, anniversary albums, and school publications. We'll always credit contributors when possible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-8 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="flex items-center justify-center space-x-3 mb-4">
+                <i class="fas fa-graduation-cap text-xl"></i>
+                <span class="text-xl font-bold">Defence Services College Kurunegala</span>
+            </div>
+            <p class="text-blue-200 mb-4">Preserving our past, inspiring our future</p>
+            <div class="flex justify-center space-x-6 text-blue-200">
+                <i class="fas fa-shield-alt"></i>
+                <span>Secure Upload System</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Replace this URL with your actual Google Form URL
+        const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform";
+        
+        document.getElementById('uploadLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            // Open in new tab for better user experience
+            window.open(GOOGLE_FORM_URL, '_blank');
+        });
+        
+        // Add hover effects and interactions
+        const uploadButton = document.getElementById('uploadLink');
+        uploadButton.addEventListener('mouseenter', function() {
+            this.querySelector('i').classList.add('animate-bounce');
+        });
+        
+        uploadButton.addEventListener('mouseleave', function() {
+            this.querySelector('i').classList.remove('animate-bounce');
+        });
+        
+        // Simple animation for FAQ items
+        const faqItems = document.querySelectorAll('.bg-white');
+        faqItems.forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+            }, 300 + (index * 100));
+        });
+    </script>
+</body>
+</html>
+
